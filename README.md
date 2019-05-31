@@ -12,7 +12,9 @@ online shopping app for cars, this is a market place app where one can make ads 
 - Javascript
 
 ### links for the UI
-github page [link here](https://harerakalex.github.io/automart-challenge/) 
+github page for user [link here](https://harerakalex.github.io/automart-challenge/UI)
+
+github page for admin [link here](https://harerakalex.github.io/automart-challenge/UI/html/admin-dashbaord/dashboard.html) 
 
 # Getting Started for backend
 
