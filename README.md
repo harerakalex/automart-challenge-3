@@ -1,6 +1,6 @@
 # automart-challenge
  
-[![Build Status](https://travis-ci.org/harerakalex/auto-mart.svg?branch=develop)](https://travis-ci.org/harerakalex/auto-mart)   [![Coverage Status](https://coveralls.io/repos/github/harerakalex/auto-mart/badge.svg?branch=develop)](https://coveralls.io/github/harerakalex/auto-mart?branch=develop)  [![Maintainability](https://api.codeclimate.com/v1/badges/febc657c80413ff84ba1/maintainability)](https://codeclimate.com/github/harerakalex/auto-mart/maintainability)
+[![Build Status](https://travis-ci.org/harerakalex/questioner-challenge.svg?branch=develop)](https://travis-ci.org/harerakalex/questioner-challenge)  [![Coverage Status](https://coveralls.io/repos/github/harerakalex/questioner-challenge/badge.svg?branch=develop)](https://coveralls.io/github/harerakalex/questioner-challenge?branch=develop)  [![Maintainability](https://api.codeclimate.com/v1/badges/36a1385fd89f3d178e1e/maintainability)](https://codeclimate.com/github/harerakalex/automart-challenge/maintainability)
 
 
 
@@ -40,11 +40,34 @@ You need a testing environment like POSTMAN
 For getting data from the app you will have to access every single API endpoint
 like  localhost:3000/api/v1/
 ```
+| URL | METHOD | DESCRIPTION |
+| ------ | ------ | ---------- |
+| /api/v1/auth/signup | POST | Get the user to signup |
+| /api/v1/auth/signin | POST | Get the user into the system |
+| /api/v1/car | POST | Post a new car |
+| /api/v1/order | POST | User can make an order |
+| /api/v1/car/:id/price | PATCH | User update the price of posted car |
+| /api/v1/order/:id/price | PATCH | User update the price of pendig order |
+| /api/v1/car/:id/status | PATCH | User mark the car as sold |
+| /api/v1/car/:id | GET | User view the specific car |
+| /api/v1/car/available | GET | User view the available cars |
+| /api/v1/car/available/range | GET | User view the available cars with price range|
+| /api/v1/car/all | GET | User view all cars whether sold or unsold |	
+| /api/v1/car/:id | DELETE | Admin can delete a specific car |
+
+
+## To run The project
+For nodemon use ```npm run dev```
+For node use ```npm start```
+
+## To Run test
+use ```npm test```
+
 # Built With Java script
 Node/Express
 
 # Author
-HARERIMANA CARLOS
+HARERIMANA Carlos
 
 # LICENSE
 ISC License
