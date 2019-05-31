@@ -6,8 +6,15 @@
 
 online shopping app for cars, this is a market place app where one can make ads and others can be able to make order of that car.
 
+# UI Tools
+- HTML
+- CSS
+- Javascript
 
-# Getting Started
+### links for the UI
+github page [link here](https://harerakalex.github.io/automart-challenge/) 
+
+# Getting Started for backend
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See Installation, Running and deployment for more details. This Application is built in nodejs with es6.
 
@@ -35,3 +42,11 @@ like  localhost:3000/api/v1/
 ```
 # Built With Java script
 Node/Express
+
+# Author
+HARERIMANA CARLOS
+
+# LICENSE
+ISC License
+Copyright (c) 2019 Carlos harerimana
+Open source software
