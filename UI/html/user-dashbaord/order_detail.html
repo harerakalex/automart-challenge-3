@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Carlos Harerimana">
+
+  <link rel="stylesheet" type="text/css" href="../../css/main.css">
+  <link rel="stylesheet" type="text/css" href="../../css/car.css">
+  <link rel="stylesheet" type="text/css" href="../../css/modal.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="sidebar">
+  <a href="home.html">Home</a>
+  <a href="cars.html">Your Ads</a>
+  <a href="recieved_orders.html">Recieved Order</a>
+  <a class="active"  href="requested_orders.html">Requested Order</a>
+  <a href="../home.html">Buy a Car</a>
+  <a href="../signin.html" class="user-set">Logout</a>
+</div>
+
+<div class="content">
+  <ul class="breadcrumb">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="requested_orders.html">Order</a></li>
+    <li><a href="#">Volswagen</a></li>
+  </ul>
+  <section id="mainwraper">
+    <h2>Volkswagen Golf</h2>
+    <div class="clearfix" id="wrapping">
+      <section id="aligned">
+        <div id="imgfix">
+          <img src="../../assets/images/golf.jpg">
+        </div>
+      </section>
+
+      <section class="clearfix" id="aside">
+        <div class="description">
+          <h4>Description:</h4>
+          <p>The Volkswagen Golf has won many awards including the coveted World Car of the Year. The sporty hatch has sold more than 25 million units worldwide thanks to its durability, low running costs and athletic performance.</p>
+        </div>
+        <div class="state">
+          <h4>Order not yet approved</h4>
+        </div>
+        <div class="price">
+          <h4>$3200.00 <button class="btn btn danger" id="priceChange">Request New Price</button></h4>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  </div>
+</div>
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form>
+      <label>Update The price Of your order</label>
+      <input type="number" name="new_price_offered" placeholder="New Price">
+      <button type="submit" class="btn success">Update</button>
+    </form>
+  </div>
+
+</div>
+
+<script>
+  var modal = document.getElementById('myModal');
+
+  var btn = document.getElementById("priceChange");
+
+  var span = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+<!-- toggling mark as sold -->
+<script>
+    let sldButton = document.getElementById('Sold');
+
+    sldButton.onclick = function () {
+      document.getElementById('markAsSold').style.display ="block";
+      document.getElementById('Sold').style.display = "none";
+    };
+</script>
+</body>
+</html> 

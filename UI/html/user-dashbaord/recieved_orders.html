@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Carlos Harerimana">
+
+  <link rel="stylesheet" type="text/css" href="../../css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="sidebar">
+  <a href="home.html">Home</a>
+  <a href="cars.html">Your Ads</a>
+  <a class="active" href="recieved_orders.html">Recieved Order</a>
+  <a href="requested_orders.html">Requested Order</a>
+  <a href="../home.html">Buy a Car</a>
+  <a href="../signin.html" class="user-set">Logout</a>
+</div>
+
+<div class="content">
+  <ul class="breadcrumb">
+    <li><a href="dashboard.html">Home</a></li>
+    <li><a href="#">Received Order</a></li>
+  </ul>
+  
+  <div class="table-container">
+    <h2>Your Latest Received Orders</h2>
+    <table id="myTable">
+      <tr>
+        <th>Buyer Name</th>
+        <th>Email</th>
+        <th>Adrdress</th>
+        <th>Requested Price</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>Harera Kalex</td>
+        <td>harera@gmail.com</td>
+        <td>Kigali</td>
+        <td>3200.00</td>
+        <td><a href="car_detail.html" title="Accept" class="btn info"><i class="fa fa-thumbs-up"></i></a><a href=""title="Reject" class="btn danger"><i class="fa fa-thumbs-down"></i></a></td>
+      </tr>
+      <tr>
+        <td>Eric</td>
+        <td>eric@gmail.com</td>
+        <td>kigali</td>
+        <td>3900.00</td>
+        <td><a href="car_detail.html" title="Accept" class="btn info"><i class="fa fa-thumbs-up"></i></a><a href=""title="Reject" class="btn danger"><i class="fa fa-thumbs-down"></i></a></td>
+      </tr>
+      <tr>
+        <td>ishimwe</td>
+        <td>ishimwe@gmail.com</td>
+        <td>bujumbura</td>
+        <td>3500.00</td>
+        <td><a href="car_detail.html" title="Accept" class="btn info"><i class="fa fa-thumbs-up"></i></a><a href=""title="Reject" class="btn danger"><i class="fa fa-thumbs-down"></i></a></td>
+      </tr>
+    </table>
+  </div>
+</div>
+  
+</body>
+</html> 
