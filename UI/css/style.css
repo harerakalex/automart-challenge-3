@@ -1,0 +1,527 @@
+/*
+
+My Custom CSS
+=============
+
+Author:  Carlos
+Created: 2019
+
+*/
+body{
+  font: 15px/1.5 Arial, Helvetica,sans-serif;
+  padding:0;
+  margin:0;
+  background-color:#f4f4f4;
+}
+
+/* --------------------------------------
+   Global
+   -------------------------------------- */
+.container{
+  width:80%;
+  margin:auto;
+  overflow:hidden;
+}
+
+a{
+  text-decoration: none;
+}
+
+.badges{
+  background: #fff;
+  color: #e8491d;
+  border-radius: 50%;
+  padding: 0.2em;
+}
+
+ul{
+  margin:0;
+  padding:0;
+}
+button:hover{
+  cursor: pointer;
+}
+.button_1{
+  height:38px;
+  background:#e8491d;
+  border:0;
+  padding-left: 20px;
+  padding-right:20px;
+  color:#ffffff;
+}
+
+.btn-small{
+  height:28px;
+  background:gray;
+  border:0;
+  padding-left: 10px;
+  padding-right:10px;
+  color:#ffffff; 
+}
+.button_1:hover{
+  background:#35424a;
+  cursor: pointer;
+  /*border: 3px solid #e8491d;*/
+}
+.resetbtn{
+  height:38px;
+  background:gray;
+  border:0;
+  padding-left: 20px;
+  padding-right:20px;
+  color:#ffffff;
+}
+.resetbtn:hover{
+  background:#35424a;
+  cursor: pointer;
+}
+
+.highlight{
+  color:#e8491d;
+  font-weight:bold;
+}
+.heading {
+  text-align: center;
+  width: 100%;
+}
+
+/* --------------------------------------
+   Header
+   -------------------------------------- */
+header{
+  background:#35424a;
+  color:#ffffff;
+  padding-top:20px;
+  min-height:60px;
+  border-bottom:#e8491d 1px solid;
+}
+
+header .upper{
+  color:#ffffff;
+  text-transform: uppercase;
+  font-size:16px;
+}
+
+header li{
+  float:left;
+  display:inline;
+  padding: 0 20px 0 20px;
+}
+
+header #branding{
+  float:left;
+}
+
+header #branding h1{
+  margin:0;
+}
+
+header nav{
+  float:right;
+  margin-top:10px;
+}
+
+header .highlight, header .current a{
+  color:#e8491d;
+  font-weight:bold;
+}
+
+header a:hover{
+  color:#cccccc;
+  font-weight:bold;
+}
+
+/* --------------------------------------
+   Dropdown
+   -------------------------------------- */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropdown .dropbtn {
+  color:#ffffff;
+  font-size: 16px; 
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #e8491d;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.hiden {
+  display: none;
+}
+
+/* --------------------------------------
+   Show Case
+   -------------------------------------- */
+#showcase{
+  min-height:400px;
+  background:url('../images/car.jpg') no-repeat 0 -400px;
+  text-align:center;
+  color:#ffffff;
+  opacity: 0.9;
+}
+#showcasehome{
+  text-align:center;
+  color:#222;
+}
+
+#showcase h1{
+  margin-top:100px;
+  font-size:55px;
+  margin-bottom:10px;
+}
+
+#showcase p{
+  font-size:20px;
+}
+
+#showcase a{
+  font-size: 35px;
+}
+
+#showcasehome h1{
+  margin-top:30px;
+  font-size:50px;
+  margin-bottom:10px;
+}
+
+#showcasehome p{
+  font-size:20px;
+}
+
+#showcasehome a{
+  font-size: 30px;
+}
+
+/* Style the video: 100% width and height to cover the entire window */
+#showvideo{
+  min-height: 50vh;
+  margin-bottom: 0;
+}
+#showvideo #myVideo {
+  position: relative;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+#showvideo .content {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px 0;
+}
+
+/* Style the button used to pause/play the video */
+#showvideo #myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#showvideo #myBtn:hover {
+  background: #e8491d;
+  color: black;
+}
+/* --------------------------------------
+   Search Container
+   -------------------------------------- */
+#search_container{
+  padding:15px;
+  color:#ffffff;
+  background:#35424a
+}
+
+#search_container .search{
+  float:left;
+  margin-top:15px;
+}
+
+#search_container .sort{
+  float:right;
+  margin-top:15px;
+}
+
+#search_container input[type="number"]{
+  padding:4px;
+  height:25px;
+  width:125px;
+}
+
+select.sort-opt{
+    position: relative;
+    padding:4px;
+    height:35px;
+    width:250px;
+    /*font-size: 27px;*/
+}
+
+/* --------------------------------------
+   Product
+   -------------------------------------- */
+#products{
+  margin-top:20px;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 31%;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+/*.row {margin: 0 -5px;}*/
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  position: relative;
+  padding: 0px;
+  text-align: center;
+}
+.card img{
+  width:100%;
+  height: 180px;
+}
+.card .box-btn{
+  display: none;
+  position: absolute;
+  left: 70%;
+  top: 50%;
+  width: 60px;
+}
+
+.card:hover{
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 0px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.card:hover .box-btn{
+  display: block;
+}
+
+/* --------------------------------------
+   Manufactures
+   -------------------------------------- */
+#manufacture {
+  background: white;
+  margin-top:20px;
+}
+.md-column {
+  float: left;
+  width: 25%;
+}
+.md-row {margin: 0 -5px;}
+.md-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.md-column img{
+  width: 80%;
+  vertical-align: center;
+  filter: grayscale(100%);
+}
+.md-column :hover{
+  width: 78%;
+  filter: none;
+}
+/* --------------------------------------
+   Footer
+   -------------------------------------- */
+footer{
+  padding:20px;
+  color:#ffffff;
+  background-color:#e8491d;
+  text-align: center;
+}
+footer .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+/* --------------------------------------
+   Responsiveness
+   -------------------------------------- */
+@media(max-width: 768px){
+  header #branding,
+  header nav,
+  header nav li,
+  #search_container h1,
+  #search_container form,
+  article#main-col,
+  aside#sidebar{
+    float:none;
+    text-align:center;
+    width:100%;
+  }
+  header{
+    padding-bottom:20px;
+  }
+  
+  header li {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  header nav {
+    float: none;
+  }
+  .dropdown {
+    display: none;
+  }
+  .hiden {
+    display: block;
+  }
+  #showcase h1{
+    margin-top:40px;
+  }
+
+  #search_container button, .quote button{
+    display:block;
+    width:100%;
+  }
+
+  #search_container form input[type="number"], .quote input, .quote textarea{
+    width:100%;
+    margin-bottom:5px;
+  }
+  select.sort-opt{
+    padding:4px;
+    height:35px;
+    width:100%;
+  }
+  /*.price-label {
+    display: none;
+  }*/
+  #showvideo{
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  header li {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  header nav {
+    float: none;
+  }
+  #products .row .column{
+    width:100%;
+  }
+  #products .row .column .card img{
+    height: 150%;
+  }
+  #showcasehome h1{
+    margin-top:20px;
+    font-size:35px;
+    margin-bottom:10px;
+  }
+
+  #showcasehome p{
+    font-size:20px;
+  }
+
+  #showcasehome a{
+    font-size: 20px;
+  }
+  .dropdown {float: none; display: block;}
+  .hiden {
+    display: none;
+  }
+  /*.price-label {
+    display: none;
+  }*/
+  #showvideo{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .md-column {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #search_container button, .quote button{
+    display:block;
+    width:100%;
+  }
+  #search_container form input[type="email"], .quote input, .quote textarea{
+    width:100%;
+    margin-bottom:5px;
+  }
+  select.sort-opt{
+    padding:4px;
+    height:35px;
+    width:100%;
+  }
+  #products .row .column{
+    width:100%;
+  }
+  #products .row .column .card img{
+    height: 200%;
+  }
+  #showvideo{
+    display: none;
+  }
+}

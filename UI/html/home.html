@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!--  Meta  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Carlos Harerimana">
+  <title>AutoMart | Harera</title>
+
+  <!--  Styles  -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+   <header>
+      <div class="container">
+        <div id="branding">
+          <h1><span class="highlight">Auto</span><i class="fas fa-car"></i>Mart</h1>
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li class="current"><a href="home.html" class="upper">Home</a></li>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Harera 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="user-dashbaord/home.html">Dashboard</a>
+                  <a href="signin.html">Logout</a>
+                </div>
+              </div>
+            </li>
+            <li class="hiden"><a href="user-dashbaord/home.html" class="upper">Dashboard</a></li>
+            <li class="hiden"><a href="../signin.html" class="upper">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="showcasehome">
+      <div class="container">
+        <h1>Best Deals For Best Cars</h1>
+        <a href="user-dashbaord/post_ads.html" class="button_1">Post Free Ad Now!</a>
+      </div>
+    </section>
+
+    <section id="search_container">
+      <div class="container">
+        <form class="search">
+          <label class="price-label">Show Cars Priced from $</label>
+          <input type="number" name="minprice" placeholder="" min="500" max="100000" step="100" title="min price">
+          <label class="price-label">to $</label>
+          <input type="number" name="maxprice" placeholder="" min="500" max="100000" step="100" title="max price">
+          <button type="submit" class="button_1">Search</button>
+        </form>
+        <form class="sort">
+          <select class="sort-opt">
+            <option>Manifactures:</option>
+            <option>Audi</option>
+            <option>BMW</option>
+            <option>Ford</option>
+            <option>Toyota</option>
+            <option>Volswagen</option>
+            <option>Volvo</option>
+          </select>
+          <button type="submit" class="button_1">Filter</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="container">
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <img src="../assets/images/car.jpg">
+              <a href="single_car.html" class="button_1 box-btn">Order</a>
+              <h3>Volswagen</h3>
+              <p>$3200.00</p>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card">
+              <img src="../assets/images/car2.jpg">
+              <a href="single_car.html" class="button_1 box-btn">Order</a>
+              <h3>Volswagen</h3>
+              <p>$3200.00</p>
+            </div>
+          </div>
+          
+          <div class="column">
+            <div class="card">
+              <img src="../assets/images/car3.jpg">
+              <a href="single_car.html" class="button_1 box-btn">Order</a>
+              <h3>Volswagen</h3>
+              <p>$3200.00</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card">
+              <img src="../assets/images/car4.jpg">
+              <a href="single_car.html" class="button_1 box-btn">Order</a>
+              <h3>Volswagen</h3>
+              <p>$3200.00</p>
+            </div>
+          </div> 
+          <div class="column">
+            <div class="card">
+              <img src="../assets/images/car2.jpg">
+              <a href="" class="button_1 box-btn">Order</a>
+              <h3>Volswagen</h3>
+              <p>$3200.00</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card">
+              <img src="../assets/images/car6.jpg">
+              <a href="single_car.html" class="button_1 box-btn">Order</a>
+              <h3>Volswagen</h3>
+              <p>$3200.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="manufacture">
+      <div class="container">
+        <h1 class="heading">Top Manufactures</h1>
+        <div id="made">
+          <div class="md-row">
+            <div class="md-column">
+              <img src="../assets/images/icons/volswagen.gif" title="Volswagen">
+            </div>
+
+            <div class="md-column">
+              <img src="../assets/images/icons/benz.png" title="BENZ">
+            </div>
+
+            <div class="md-column">
+              <img src="../assets/images/icons/toyota.png" title="Toyota">
+            </div>
+
+            <div class="md-column">
+              <img src="../assets/images/icons/bmw.jpg" title="BMW">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>AutoMart designed by Carlos Harerimana, Copyright &copy; 2019</p>
+      <p><a href="#" class="fa fa-facebook" title="facebook"></a>
+        <a href="#" class="fa fa-twitter" title="twitter"></a>
+        <a href="#" class="fa fa-instagram" title="instagram"></a>
+      </p>
+    </footer>
+
+
+  <!-- Scripts -->
+  <script src="scripts/index.js"></script>
+</body>
+
+</html>

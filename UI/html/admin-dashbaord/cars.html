@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Carlos Harerimana">
+
+  <link rel="stylesheet" type="text/css" href="../../css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="sidebar">
+  <a href="dashboard.html">Home</a>
+  <a class="active" href="cars.html">Cars</a>
+  <a href="unsold_cars.html">Unsold Cars</a>
+  <a href="sold_cars.html">Sold Cars</a>
+  <a href="fraud.html">Fraud</a>
+  <a href="../signin.html" class="user-set">Logout</a>
+</div>
+
+<div class="content">
+  <ul class="breadcrumb">
+    <li><a href="dashboard.html">Home</a></li>
+    <li><a href="#">Cars</a></li>
+  </ul>
+  
+  <div class="table-container">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Manifacuter.." title="Type in a Manifacuter">
+    <table id="myTable">
+      <tr>
+        <th>Manifacuter</th>
+        <th>Model</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>State</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>Volswagen</td>
+        <td>Golf</td>
+        <td>Car</td>
+        <td>3200.00</td>
+        <td>new</td>
+        <td>unsold</td>
+        <td><a href="car_detail.html" title="Details" class="btn info"><i class="fa fa-info"></i></a><a href=""title="Remove" class="btn danger"><i class="fa fa-trash"></i></a></td>
+      </tr>
+      <tr>
+        <td>Toyota</td>
+        <td>Passo</td>
+        <td>truck</td>
+        <td>3900.00</td>
+        <td>used</td>
+        <td>sold</td>
+        <td><a href="car_detail.html" title="Details" class="btn info"><i class="fa fa-info"></i></a><a href=""title="Remove" class="btn danger"><i class="fa fa-trash"></i></a></td>
+      </tr>
+      <tr>
+        <td>BMW</td>
+        <td>mini</td>
+        <td>SportCar</td>
+        <td>3500.00</td>
+        <td>new</td>
+        <td>unsold</td>
+        <td><a href="car_detail.html" title="Details" class="btn info"><i class="fa fa-info"></i></a><a href=""title="Remove" class="btn danger"><i class="fa fa-trash"></i></a></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- script for filtering data -->
+<script type="text/javascript">
+  function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+</script>   
+</body>
+</html> 
