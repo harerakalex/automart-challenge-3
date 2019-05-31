@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!--  Meta  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Carlos Harerimana">
+  <title>AutoMart | SignUp</title>
+
+  <!--  Styles  -->
+  <!-- <link rel="stylesheet" type="text/css" href="styles/style.css"> -->
+  <link rel="stylesheet" type="text/css" href="../css/sign.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+
+<body>
+   
+  <div class="login-section">
+    <div class="signup">
+      <div class="modal-content modal-info">
+        <div class="modal-header">
+          <h3>SignUp to <span class="highlight">Auto</span><i class="fas fa-car"></i>Mart</h3>
+        </div>
+        <div class="modal-body modal-spa">
+          <div class="login-form">
+            <form action="home.html" method="post" id="myform">
+              <input type="text" id="fname" name="firstname" placeholder="First Name" title="please enter your fisrt name" required="">
+              <input type="text" id="sname" name="lastname" placeholder="Last Name" title="please enter your last name" required="">
+              <input type="email" id="email" class="user" name="loginid" placeholder="Email eg: me@example.com" title="please enter valid email" required="">
+              <input type="text" class="address" id="address" name="address" placeholder="address eg: Kigali, Rwanda" required="">
+              <input type="password" class="lock" id="password1" name="userpassword" placeholder="password" required="" value="">
+
+            <div id="message">
+              <h3>Password must contain the following:</h3>
+              <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+              <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+              <p id="number" class="invalid">A <b>number</b></p>
+              <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+            </div>
+
+              <input type="password" class="lock" id="password2" name="usercomfirmpassword" placeholder="confirm password" required="" value="">
+              <div class="signin-rit">
+                <span class="checkbox1">
+                  <label class="checkbox"><input type="checkbox" name="checkbox" checked="">I agree to AutoMart</label>
+                </span>
+                <a class="pp" href="#">Privacy Policy</a>
+                <div class="clear"> </div>
+              </div>
+              <input type="submit" value="Sign Up" id="btnsubmit">
+            </form>
+            <p>Have an Account? <a href="signin.html">Login</a></p>
+            </div>
+          </div>
+        </div>
+        <!-- //login -->
+        <div class="clear"></div>
+      </div>
+    </div>
+
+  <!-- Scripts -->
+  
+  <script src="../js/validation.js"></script>
+</body>
+
+</html>

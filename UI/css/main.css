@@ -1,0 +1,307 @@
+/*
+
+My Custom CSS
+=============
+
+Author:  Carlos
+Created: 2019
+
+*/
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+/* --------------------------------------
+   Buttons
+   -------------------------------------- */
+.btn {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.success {background-color: #4CAF50;} /* Green */
+.success:hover {background-color: #e8491d;}
+
+.info {background-color: #2196F3;} /* Blue */
+.info:hover {background: #0b7dda;}
+
+.warning {background-color: #ff9800;} /* Orange */
+.warning:hover {background: #e68a00;}
+
+.danger {background-color: #f44336;} /* Red */ 
+.danger:hover {background: #da190b;}
+
+.default {background-color: #e7e7e7; color: black;} /* Gray */ 
+.default:hover {background: #ddd;}
+
+/* --------------------------------------
+   Sidebar
+   -------------------------------------- */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #e8491d;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+.user-set{
+  background: lightgray;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------
+   Main div content
+   -------------------------------------- */
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/*__________
+breadcrumb
+__________
+*/
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #35424a;
+}
+
+
+ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+}
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+ul.breadcrumb li a:hover {
+    color: #e8491d;
+    text-decoration: underline;
+}
+
+/* --------------------------------------
+   Table
+   -------------------------------------- */
+.table-container{
+  overflow-x:auto;
+}
+#myInput {
+  background-image: url('../images/icons/search.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 50%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+   /*Badges
+   ______*/
+.badges{
+  color: #fff;
+  border-radius: 50%;
+  padding: 0.2em;
+}
+.b-green{
+  background: green;
+}
+.b-red{
+  background: #e8491d;
+  padding: 0.5em;
+}
+.b-black{
+  background: black;
+}
+
+/*single car
+-----------*/
+.coupon {
+  border: 5px solid #bbb;
+  width: 80%;
+  border-radius: 15px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.container {
+  padding: 2px 16px;
+  background-color: #f1f1f1;
+}
+.coupon img{
+  width: 100%;
+}
+.status {
+  background: #ccc;
+  padding: 3px;
+}
+
+.posted-on {
+  color: red;
+}
+
+/* --------------------------------------
+   Form
+   -------------------------------------- */
+.form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+
+input[type=text],input[type=number], input[type=file], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+input[type=submit] {
+  float: right;
+}
+
+
+/* Clear floats after the columns */
+.form .form-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* --------------------------------------
+   LIST of Car publish
+   -------------------------------------- */
+
+
+
+/*__________
+small devices
+__________
+*/
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+  .table-container{
+    overflow-x:auto;
+  }
+}

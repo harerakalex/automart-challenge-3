@@ -1,0 +1,151 @@
+#mainwraper {
+    display: block;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 66px;
+    padding: 20px 15px;
+    background: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+#mainwraper h2 {
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    color: #363636;
+    font-size: 2.6em;
+    line-height: 1.8em;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    padding: 12px 0;
+    text-align: center;
+}
+
+#mainwraper h4 {
+    font-size: 1em;
+    color: #212121;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+#wrapping {
+    width: 100%;
+    box-sizing: border-box;
+}
+.clearfix {
+    display: inline-block;
+}
+
+#aligned {
+    box-sizing: border-box;
+    float: left;
+    width: 400px;
+    margin-right: 50px;
+}
+
+#imgfix img{
+	width: 100%;
+}
+
+#aside {
+    float: left;
+    width: 500px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#aside .description p{
+	font-size: 14px;
+    color: #999;
+    line-height: 2em;
+    margin: 0;
+    width: 95%;
+}
+#aside .price h4{
+	margin-top: 30px;
+	font-size: 1em;
+    color: rgb(33, 33, 33);
+}
+#aside .price span{
+	font-weight: 300;
+}
+#aside .price .priceValue{
+    border: 0;
+    pointer-events:none;
+}
+#aside .price .priceValue.show{
+    border: 2px solid black;
+    pointer-events:auto;
+}
+
+#aside .state{
+    margin-bottom: 30px;
+}
+
+#submitbtn{
+    display: none;
+}
+
+/* --------------------------------------
+   Styles for pedding cars
+   -------------------------------------- */
+.loader {
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #3498db; 
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* --------------------------------------
+   Styles form for updaating price 
+   -------------------------------------- */
+
+   #form-inline { 
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      margin:20px auto;
+      display: none;
+  }
+  #markAsSold { 
+      margin:20px auto;
+      display: none;
+  }
+
+
+/* smaller screen dropoff *******/
+@media(max-width: 800px){
+	#aligned, #aside {
+    box-sizing: border-box;
+    float: none;
+    width: 100%;
+}
+}
+
+
+@media(max-width: 550px) {
+    
+}
+ 
+/* iPhone Landscape ********/
+@media(max-width: 480px) {
+  body {
+    padding: 10px 0px;
+  }
+}
+ 
+/* iPhone portrait *******/
+@media(max-width: 320px) {
+  body {
+    padding: 10px 0px;
+  }
+}

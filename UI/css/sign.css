@@ -1,0 +1,222 @@
+/*
+
+My Custom CSS
+=============
+
+Author:  Carlos
+Created: 2019
+
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, 
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, 
+img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, 
+i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, 
+caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, 
+embed, figure, figcaption, footer, header, hgroup, menu, nav, output,
+section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body{
+	background: lightgray;
+}
+
+.highlight{
+  color:#e8491d;
+  font-weight:bold;
+}
+.login, .signup {
+    width: 380px;
+    margin: 0 auto;
+    padding: 5% 0;
+}
+
+.modal-content .modal-info {
+    border-radius: 0;
+    border: none;
+}
+
+.modal-content {
+    background: #fff;
+}
+
+.modal-header {
+    border-bottom:#e8491d 1px solid;
+    text-align: center;
+    background-color: #35424a;
+    padding: 22px 12px;
+}
+
+.modal-header h3 {
+    color: #ffffff;
+    font-size: 22px;
+}
+
+
+.modal-body{
+padding:30px 35px 35px;
+}
+
+.login-form input[type="text"], 
+.login-form input[type="password"], 
+.login-form input[type="email"] {
+    width: 85%;
+    padding: 10px 10px 10px 35px;
+    font-weight: normal;
+    background: none;
+    border: 1px solid #8FA4B9;
+    color: #545454;
+    outline: none;
+    font-size: 14px;
+    margin: 6px 0 17px 0px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+}
+
+/*Icon*/
+.login-form input.user {
+    background: url('../assets/images/icons/user.png')no-repeat 4px 5px #fff;
+}
+
+.login-form input.lock {
+    background: url('../assets/images/icons/lock.png')no-repeat 4px 5px #fff;
+}
+
+.login-form input.address {
+    background: url('../assets/images/icons/address.png')no-repeat 4px 5px #fff;
+}
+
+/*forget pass*/
+.signin-rit {
+    margin: 1.2em 0;
+}
+
+span.checkbox1 {
+    float: left;
+}
+
+a.forgot {
+    float: right;
+    color: #ce451b;
+    text-decoration: none;
+    font-size: 0.875em;
+}
+
+a.pp {
+    color: #ce451b;
+    margin-left: 6px;
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.login-form input[type="submit"] {
+    background: #35424a;
+    color: #fff;
+    font-size: 17px;
+    border: none;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    padding: 10px 15px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+}
+
+.login-form input[type="submit"]:hover{
+	background: #e8491d;
+}
+
+.login-form p a {
+    color: #ce451b;
+}
+
+.login-form p {
+    text-align: center;
+    margin-top: 1em;
+    font-size: 0.95em;
+    letter-spacing: 1px;
+    color: #2F2F2F;
+}
+
+/* --------------------------------------
+   Error Message
+   -------------------------------------- */
+   /* The message box is shown when the user clicks on the password field */
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  text-align: left;
+  padding: 5px 25px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+#message .valid {
+  color: green;
+}
+
+#message .valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+#message .invalid {
+  color: red;
+}
+
+#message .invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+
+
+@media only screen and (max-width: 430px){
+	.modal-body {
+    	padding: 30px 25px 35px;
+	}	
+	.login-form input[type="text"],
+	.login-form input[type="password"], 
+	.login-form input[type="email"], 
+	input#tel, 
+	input#email {
+    width: 83%;
+	}
+	.login-form p {
+    letter-spacing: 0px;
+}
+}
+
+@media only screen and (max-width: 640px){
+	.login, .signup {
+    	width: 360px;
+	}	
+}
