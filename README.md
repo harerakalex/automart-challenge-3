@@ -1,6 +1,6 @@
 # automart-challenge
  
-[![Build Status](https://travis-ci.org/harerakalex/questioner-challenge.svg?branch=develop)](https://travis-ci.org/harerakalex/questioner-challenge)  [![Coverage Status](https://coveralls.io/repos/github/harerakalex/questioner-challenge/badge.svg?branch=develop)](https://coveralls.io/github/harerakalex/questioner-challenge?branch=develop)  [![Maintainability](https://api.codeclimate.com/v1/badges/36a1385fd89f3d178e1e/maintainability)](https://codeclimate.com/github/harerakalex/automart-challenge/maintainability)
+[![Build Status](https://travis-ci.org/harerakalex/automart-challenge.svg?branch=develop)](https://travis-ci.org/harerakalex/automart-challenge)  [![Coverage Status](https://coveralls.io/repos/github/harerakalex/automart-challenge/badge.svg?branch=develop)](https://coveralls.io/github/harerakalex/automart-challenge?branch=develop)  [![Maintainability](https://api.codeclimate.com/v1/badges/36a1385fd89f3d178e1e/maintainability)](https://codeclimate.com/github/harerakalex/automart-challenge/maintainability)
 
 
 
@@ -65,13 +65,13 @@ For node use ```npm start```
 ## To Run test
 use ```npm test```
 
-# Built With Java script
+## Built With Java script
 Node/Express
 
-# Author
+### Author
 HARERIMANA Carlos
 
-# LICENSE
+### LICENSE
 ISC License
-Copyright (c) 2019 Carlos harerimana
+Copyright (c) 2019 ```Carlos HARERIMANA```
 Open source software
