@@ -28,3 +28,23 @@ describe('signup', () => {
       });
   });
 });
+
+const userCredential = {
+  email: 'harera@gmail.com',
+  password: 'butare',
+};
+
+describe('signIn', () => {
+  it('User should sign in successfully', (done) => {
+    chai.request(server)
+      .post('/api/v1/auth/signin')
+      .send(userCredential)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(200);
+        res.body.should.have.property('data');
+        done();
+      });
+  });
+});
