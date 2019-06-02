@@ -3,7 +3,7 @@ import Joi from 'joi';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import users from '../models/users';
-import { signupValidation } from '../helper/validation';
+import { signupValidation, signinValidation } from '../helper/validation';
 
 class User {
 /**
@@ -60,7 +60,43 @@ class User {
  * @param {*returns success if created} res
  */
   async login(req, res) {
+    const { error } = Joi.validate(req.body, signinValidation);
+    if (error) {
+      const errorMessage = error.details[0].message;
+      return res.status(400).json({
+        status: 400,
+        error: errorMessage,
+      });
+    }else{
+      const userEmail = req.body.email;
+      const userPassword = req.body.password;
+      const foundUser = users.find(e => e.email === userEmail);
 
+      if (!foundUser) {
+        return res.status(401).json({ status: 401, error: 'email does not exist' });
+      }
+      else{
+        const pass = bcrypt.compareSync(userPassword, foundUser.password);
+        if (pass) {
+          delete foundUser.password;
+
+          jwt.sign({ id: foundUser.id, email: foundUser.email, admin: foundUser.is_admin }, "automart-key", {expiresIn: '24h'}, (err, token) => {
+            foundUser.token = token;
+            return res.status(200).json(
+            {
+              status: 200,
+              data: foundUser
+            });
+          });
+        }
+        else{
+          return res.status(401).json({
+            status: 401,
+            message: "invalid credential"
+          })
+        }
+      }
+    }  
   }
 
   /**
