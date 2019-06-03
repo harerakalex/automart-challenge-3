@@ -19,4 +19,7 @@ router.patch('/:id/price', car.updatePrice);
 // update the status of posted car
 router.patch('/:id/status', car.updateStatus);
 
+// view a specific car
+router.get('/:id', car.fetchId);
+
 export default router;

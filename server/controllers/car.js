@@ -26,7 +26,17 @@ async fetch(req, res) {
  * @param {*} res 
  */
 async fetchId(req, res) {
-  
+	const foundCar = cars.find(c => c.id === parseInt(req.params.id, 10));
+	if (!foundCar) {
+		return res.status(404).json({
+			status: 404,
+			error: 'Could not find Car with a given ID',
+		});
+	}
+	return res.status(200).json({
+		status: 200,
+		data: foundCar,
+	});  
 }
 
 /**
