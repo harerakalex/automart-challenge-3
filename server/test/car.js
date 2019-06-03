@@ -132,3 +132,18 @@ describe('Get a list of the Cars', () => {
       });
   });
 });
+
+// Delete a car test
+describe('Admin delete a car', () => {
+  it('Delete a car', (done) => {
+    chai.request(server)
+      .delete('/api/v1/car/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(200);
+        res.body.should.have.property('data');
+        done();
+      });
+  });
+});

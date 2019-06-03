@@ -184,7 +184,16 @@ async updateStatus(req, res) {
  * @param {*} res 
  */
 async delete(req, res) {
-    
+	const carToDelete = cars.find(c => c.id === parseInt(req.params.id, 10));
+	if (!carToDelete) 
+		return res.status(404).json({status: 404,error: 'Could not find Car with a given ID',});
+
+	const index = cars.indexOf(carToDelete);
+	cars.splice(index, 1);
+	res.status(200).json({
+		status: 200,
+		data: "Car Ad successfully Deleted"
+	});    
 }
 
 }
