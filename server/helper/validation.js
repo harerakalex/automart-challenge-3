@@ -24,8 +24,12 @@ const validateCar = Joi.object({
 	description: Joi.string().max(150).required(),
 });
 
+const updateCarPrice = {
+	price: Joi.number().precision(4).positive().min(2).required()
+}
 module.exports = { 
 	signupValidation,
 	signinValidation,
 	validateCar,
+	updateCarPrice,
 };
