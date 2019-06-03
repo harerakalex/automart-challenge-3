@@ -13,6 +13,7 @@ const car = new Car();
 // creating a product car
 router.post('/', multipartMiddleware, car.create);
 
-router.get('/:car-id/status', car.fetch);
+// update the price of posted car
+router.patch('/:id/price', car.updatePrice);
 
 export default router;
