@@ -14,6 +14,7 @@ const newCar = {
       price: 2000.01,
       state: 'new',
       body_type: 'Pick up',
+      descriptios: 'brand new car 2019'
     };
 describe('Post Ads', () => {
   it('New car it should not be created successfully', (done) => {
