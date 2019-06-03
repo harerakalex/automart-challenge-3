@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { validateCar, updateCarPrice } from '../helper/validation';
+import { validateCar, updateCarPrice, updateCarStatus } from '../helper/validation';
 import timeStamp from '../helper/timestamp';
 import cars from '../models/cars';
 import cloudinary from 'cloudinary';
@@ -131,7 +131,24 @@ async updatePrice(req, res) {
  * @param {*} res 
  */
 async updateStatus(req, res) {
-  
+  	const { error } = Joi.validate(req.body, updateCarStatus);
+	if (error) {
+		const errorMessage = error.details[0].message;
+		return res.status(400).json({
+        status: 400,
+        error: errorMessage
+      });
+	}else {
+		const updateCarStatus = cars.find(s => s.id === parseInt(req.params.id, 10));
+	    if (!updateCarStatus) 
+			return res.status(404).json({status: 404,error: 'Could not find Car with a given ID',});
+		const markAsSold = req.body.status;
+		updateCarStatus.status = markAsSold;
+		res.status(200).json({
+			status: 200,
+			data: updateCarStatus,
+		});
+	}		  
 }
 
 /**

@@ -50,3 +50,23 @@ describe('Update the Price of Posted Ads', () => {
       });
   });
 });
+
+// unit test for updating status
+const newStatus = {
+  status: 'sold'
+}
+
+describe('Mark car as sold', () => {
+  it('Status should be updated successfully', (done) => {
+    chai.request(server)
+      .patch('/api/v1/car/1/status')
+      .send(newStatus)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(200);
+        res.body.should.have.property('data');
+        done();
+      });
+  });
+});
