@@ -14,6 +14,7 @@ const signinValidation = Joi.object({
 	password: Joi.string().min(3).required(),
 });
 
+// validating a car
 const validateCar = Joi.object({
 	owner: Joi.number().integer().required(),
 	manufacture: Joi.string().alphanum().min(3).required(),
@@ -24,12 +25,24 @@ const validateCar = Joi.object({
 	description: Joi.string().max(150).required(),
 });
 
+// validating price for update
 const updateCarPrice = {
 	price: Joi.number().precision(4).positive().min(2).required()
-}
+};
+
+
+// validating order
+const orderValidation = Joi.object({
+	buyer_id: Joi.number().integer().required(),
+    car_id: Joi.number().integer().required(),
+    amount: Joi.number().precision(4).positive().min(2).required(),
+});
+
+
 module.exports = { 
 	signupValidation,
 	signinValidation,
 	validateCar,
 	updateCarPrice,
+	orderValidation,
 };
