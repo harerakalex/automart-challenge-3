@@ -48,6 +48,12 @@ const updateCarStatus = {
 	status: Joi.string().valid('sold').min(3).required()
 };
 
+const queryValidation = {
+	status: Joi.string().valid('available'),
+	min_price: Joi.number().precision(4).positive().min(2),
+	max_price: Joi.number().precision(4).positive().min(2),
+};
+
 module.exports = { 
 	signupValidation,
 	signinValidation,
@@ -56,4 +62,5 @@ module.exports = {
 	orderValidation,
 	updateOrderPrice,
 	updateCarStatus,
+	queryValidation,
 };

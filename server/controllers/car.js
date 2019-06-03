@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { validateCar, updateCarPrice, updateCarStatus } from '../helper/validation';
+import { validateCar, updateCarPrice, updateCarStatus, queryValidation } from '../helper/validation';
 import timeStamp from '../helper/timestamp';
 import cars from '../models/cars';
 import cloudinary from 'cloudinary';
@@ -17,7 +17,38 @@ class Car {
  * @param {*} res 
  */
 async fetch(req, res) {
- 
+	const { error } = Joi.validate(req.query, queryValidation);
+	if (error) {
+		const errorMessage = error.details[0].message;
+		return res.status(400).json({
+        status: 400,
+        error: errorMessage
+      });
+	}
+	const queryParameter = req.query;
+	const carStatus = queryParameter.status;
+	const minPrice = queryParameter.min_price;
+	const maxPrice = queryParameter.max_price;
+	// to detect the size of the query object
+	const keys = Object.keys(queryParameter);
+
+	if (keys.length === 1) {
+		const query = cars.filter(c => c.status === carStatus);
+		if (query.length > 0) res.status(200).json({ status: 200, data: query });
+		else res.status(404).json({ status: 404, error: 'No search Data found for that query' });
+	} else if (keys.length === 3) {
+		const range = cars
+		.filter(a => a.status === carStatus && a.price >= minPrice && a.price <= maxPrice);
+
+		if (range.length > 0) res.status(200).json({ status: 200, data: range });
+		else res.status(404).json({ status: 404, error: 'No search Data found for that query' });
+	} else {
+		res.status(200).json({
+			status: 200,
+			data: cars,
+		});
+	}
+
 }
 
 /**
@@ -39,23 +70,7 @@ async fetchId(req, res) {
 	});  
 }
 
-/**
- * 
- * @param {*} req 
- * @param {*} res 
- */
-async fetchAvailable(req, res) {
-  
-}
 
-/**
- * 
- * @param {*} req 
- * @param {*} res 
- */
-async fetchRange(req, res) {
-  
-}
 
 /**
  * 

@@ -86,3 +86,35 @@ describe('Mark car as sold', () => {
       });
   });
 });
+
+// // test for getting all car
+// describe('Get a list of the Cars', () => {
+//   it('Get all car', (done) => {
+//     chai.request(server)
+//       .get('/api/v1/car')
+//       .send(newStatus)
+//       .end((err, res) => {
+//         res.should.have.status(200);
+//         res.should.be.an('object');
+//         res.body.should.have.property('status').eql(200);
+//         res.body.should.have.property('data');
+//         done();
+//       });
+//   });
+// });
+
+// test for getting all car
+describe('Get a list of the Cars', () => {
+  it('Get all car', (done) => {
+    chai.request(server)
+      .get('/api/v1/car?status=available')
+      .send(newStatus)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(200);
+        res.body.should.have.property('data');
+        done();
+      });
+  });
+});
