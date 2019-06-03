@@ -6,7 +6,7 @@ const order1 = {
     "car_id": 3,
     "created_on": "2019-5-23 10:17:33",
     "price": 1700,
-    "price_offered": "1600",
+    "price_offered": 1600,
     "status": "pending"
 };
 
@@ -17,7 +17,7 @@ const order2 = {
     "created_on": "2019-5-23 11:38:16",
     "price": 1400,
     "price_offered": 1100,
-    "status": "pending"
+    "status": "accepted"
 };
 
 orders.push(order1,order2);
