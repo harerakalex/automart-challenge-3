@@ -22,4 +22,7 @@ router.patch('/:id/status', car.updateStatus);
 // view a specific car
 router.get('/:id', car.fetchId);
 
+// view a specific car
+router.get('/', car.fetch);
+
 export default router;
