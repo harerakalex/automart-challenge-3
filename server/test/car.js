@@ -70,3 +70,19 @@ describe('Mark car as sold', () => {
       });
   });
 });
+
+// test for getting a specific car
+describe('Mark car as sold', () => {
+  it('Status should be updated successfully', (done) => {
+    chai.request(server)
+      .get('/api/v1/car/1')
+      .send(newStatus)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(200);
+        res.body.should.have.property('data');
+        done();
+      });
+  });
+});

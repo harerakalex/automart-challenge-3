@@ -33,7 +33,7 @@ const car3 = {
     "owner": 2,
     "created_on": "2019-5-26 16:2:13",
     "state": "new",
-    "status": "available",
+    "status": "sold",
     "price": "1200.23",
     "manufacture": "BMW",
     "model": "seria A",
