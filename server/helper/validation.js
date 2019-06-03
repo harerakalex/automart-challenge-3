@@ -38,6 +38,11 @@ const orderValidation = Joi.object({
     amount: Joi.number().precision(4).positive().min(2).required(),
 });
 
+// validating price update for the order
+const updateOrderPrice = {
+	price: Joi.number().precision(4).positive().min(2).required()
+};
+
 
 module.exports = { 
 	signupValidation,
@@ -45,4 +50,5 @@ module.exports = {
 	validateCar,
 	updateCarPrice,
 	orderValidation,
+	updateOrderPrice,
 };

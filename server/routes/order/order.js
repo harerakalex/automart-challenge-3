@@ -9,6 +9,8 @@ const order = new Order();
 // route for creating order
 router.post('/', order.create);
 
+// update the price
+router.patch('/:id/price', order.update);
 
 
 export default router;
