@@ -1,6 +1,6 @@
 import Joi from 'joi';
 import { validateCar } from '../helper/validation';
-import timeStamp from '../helper/timeStamp';
+import timeStamp from '../helper/timestamp';
 import cars from '../models/cars';
 import cloudinary from 'cloudinary';
 import cloudinaryConfig from '../helper/cloudinaryConfig';
