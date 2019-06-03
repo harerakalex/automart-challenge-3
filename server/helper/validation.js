@@ -43,6 +43,10 @@ const updateOrderPrice = {
 	price: Joi.number().precision(4).positive().min(2).required()
 };
 
+// validating status update for the car
+const updateCarStatus = {
+	status: Joi.string().valid('sold').min(3).required()
+};
 
 module.exports = { 
 	signupValidation,
@@ -51,4 +55,5 @@ module.exports = {
 	updateCarPrice,
 	orderValidation,
 	updateOrderPrice,
+	updateCarStatus,
 };

@@ -16,4 +16,7 @@ router.post('/', multipartMiddleware, car.create);
 // update the price of posted car
 router.patch('/:id/price', car.updatePrice);
 
+// update the status of posted car
+router.patch('/:id/status', car.updateStatus);
+
 export default router;
