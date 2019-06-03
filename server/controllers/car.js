@@ -34,16 +34,18 @@ async fetch(req, res) {
 
 	if (keys.length === 1) {
 		const query = cars.filter(c => c.status === carStatus);
-		if (query.length > 0) res.status(200).json({ status: 200, data: query });
-		else res.status(404).json({ status: 404, error: 'No search Data found for that query' });
+		if (query.length > 0) 
+			return res.status(200).json({ status: 200, data: query });
+		else 
+			return res.status(404).json({ status: 404, error: 'No search Data found for that query' });
 	} else if (keys.length === 3) {
 		const range = cars
-		.filter(a => a.status === carStatus && a.price >= minPrice && a.price <= maxPrice);
+		.filter(p => p.status === carStatus && p.price >= minPrice && p.price <= maxPrice);
 
 		if (range.length > 0) res.status(200).json({ status: 200, data: range });
-		else res.status(404).json({ status: 404, error: 'No search Data found for that query' });
+		else return res.status(404).json({ status: 404, error: 'No search Data found for that query' });
 	} else {
-		res.status(200).json({
+		return res.status(200).json({
 			status: 200,
 			data: cars,
 		});
