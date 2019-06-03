@@ -25,4 +25,7 @@ router.get('/:id', car.fetchId);
 // view a specific car
 router.get('/', car.fetch);
 
+// Delete a specific car
+router.delete('/:id', car.delete);
+
 export default router;
