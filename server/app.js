@@ -3,6 +3,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 // import the index routes
 import routes from './routes/index';
+// import swagger
+import swaggerUi from 'swagger-ui-express';
+import swaggerDoc from '../swagger.json';
+
 
 const app = express();
 
@@ -12,8 +16,16 @@ app.use(bodyParser.json());// accept json data
 // redirect to the routes
 app.use('/api/v1/', routes);
 
+// redirect to swagger json
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+
+// Index of autmart
+app.get('/', (req, res) => res.status(200).json({
+  message: 'Welcome to AutoMart, Online shop for cars.'
+}));
+
 // accept static files
-app.use(express.static(`${__dirname}/`));
+app.use('/ui', express.static('UI'));
 
 app.use((req, res) => {
   return res.status(404).json({
