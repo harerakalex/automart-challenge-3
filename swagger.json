@@ -261,6 +261,43 @@
               "description": "Server Error"
             }
         }
+      },
+      "delete": {
+        "tags": [
+          "Cars"
+        ],
+        "summary": "Delete a specific car",
+        "description": "Admin can delete a specific car",
+        "parameters": [
+          {
+            "name":"Authorization",
+            "in": "header",
+            "description" :"The user token",
+            "required":false
+            
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": " Car Id",
+            "required":true,
+            "type":"integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+              "description": "success: Ad Successfully deleted"
+            },
+            "404": {
+              "description": "Error: Car not found"
+            },
+            "500": {
+              "description": "Server Error"
+            }
+        }
       }
     },
     "/car/{id}/status": {
