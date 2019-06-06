@@ -2,8 +2,8 @@ import jwt from 'jsonwebtoken';
 
 const checkAuth = (req, res, next) => {
   try {
-    // use split fuction bcs jwt goes with schema Bearer
-    const token = req.headers.authorization.split(" ")[1];
+    // take token from headers
+    const token = req.headers.authorization;
     if (!token || token === '') 
       return res.status(401).json({ status: 401, error: 'Unauthorized' });
 
