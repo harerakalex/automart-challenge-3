@@ -108,6 +108,9 @@
         ],
         "summary": "Post a car sale ad",
         "description": "User(seller) can Post a new car",
+        "consumes": [
+          "multipart/form-data"
+        ],
         "parameters": [
           {
             "name":"Authorization",
@@ -117,12 +120,52 @@
 
           },
           {
-            "name": "car sale ad",
-            "in": "body",
-            "description": "details of a car sale you want to post",
-            "schema": {
-              "$ref": "#/definitions/carData"
-            }
+            "name": "owner",
+            "in": "formData",
+            "type": "integer",
+            "description": "owner"
+          },
+          {
+            "name": "manufacture",
+            "in": "formData",
+            "type": "string",
+            "description": "manufacturer"
+          },
+          {
+            "name": "model",
+            "in": "formData",
+            "type": "string",
+            "description": "model"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "type": "integer",
+            "description": "price"
+          },
+          {
+            "name": "state",
+            "in": "formData",
+            "type": "string",
+            "description": "state"
+          },
+          {
+            "name": "body_type",
+            "in": "formData",
+            "type": "string",
+            "description": "body_type"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string",
+            "description": "descriptions"
+          },
+          {
+            "name": "picture",
+            "in": "formData",
+            "type": "file",
+            "description": "file to upload"
           }
         ],
         "produces": [
