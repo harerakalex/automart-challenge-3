@@ -1,5 +1,6 @@
 import express from 'express';
 import Order from '../../controllers/order';
+import auth from '../../middlewares/checkAuth';
 
 const router = express.Router();
 
@@ -7,10 +8,10 @@ const router = express.Router();
 const order = new Order();
 
 // route for creating order
-router.post('/', order.create);
+router.post('/', auth, order.create);
 
 // update the price
-router.patch('/:id/price', order.update);
+router.patch('/:id/price', auth, order.update);
 
 
 export default router;

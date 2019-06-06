@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../server';
@@ -5,6 +6,11 @@ import { describe, it } from 'mocha';
 
 chai.use(chaiHttp);
 chai.should();
+
+const user = {
+      email: 'hareraloston@gmail.com',
+    };
+const token = jwt.sign(user, 'automart-key', { expiresIn: '24hrs' });
 
 // if all field not completed will not post a car.
 const newCar = {
@@ -20,11 +26,37 @@ describe('Post Ads', () => {
   it('New car it should not be created successfully', (done) => {
     chai.request(server)
       .post('/api/v1/car')
+      .set('Authorization', token)
       .send(newCar)
       .end((err, res) => {
         res.should.have.status(400);
         res.should.be.an('object');
         res.body.should.have.property('status').eql(400);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+  it('New car it should not be created successfully if Authorization fails', (done) => {
+    chai.request(server)
+      .post('/api/v1/car')
+      .send(newCar)
+      .end((err, res) => {
+        res.should.have.status(401);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(401);
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+  it('New car it should not be created successfully if token is invalid', (done) => {
+    chai.request(server)
+      .post('/api/v1/car')
+      .set('Authorization', 'thisisfaketoken')
+      .send(newCar)
+      .end((err, res) => {
+        res.should.have.status(401);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(401);
         res.body.should.have.property('error');
         done();
       });
@@ -40,6 +72,7 @@ describe('Update the Price of Posted Ads', () => {
   it('New price  successfully', (done) => {
     chai.request(server)
       .patch('/api/v1/car/1/price')
+      .set('Authorization', token)
       .send(newPrice)
       .end((err, res) => {
         res.should.have.status(200);
@@ -60,6 +93,7 @@ describe('Mark car as sold', () => {
   it('Status should be updated successfully', (done) => {
     chai.request(server)
       .patch('/api/v1/car/1/status')
+      .set('Authorization', token)
       .send(newStatus)
       .end((err, res) => {
         res.should.have.status(200);
@@ -138,6 +172,7 @@ describe('Admin delete a car', () => {
   it('Delete a car', (done) => {
     chai.request(server)
       .delete('/api/v1/car/1')
+      .set('Authorization', token)
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.an('object');
