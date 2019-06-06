@@ -21,7 +21,8 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 // Index of autmart
 app.get('/', (req, res) => res.status(200).json({
-  message: 'Welcome to AutoMart, Online shop for cars.'
+	status: 200,
+   	message: 'Welcome to AutoMart, Online shop for cars.'
 }));
 
 // accept static files
