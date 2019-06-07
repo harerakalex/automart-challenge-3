@@ -3,7 +3,9 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../server';
 import { describe, it } from 'mocha';
+import dotenv from 'dotenv';
 
+dotenv.config();
 chai.use(chaiHttp);
 chai.should();
 
@@ -16,7 +18,7 @@ const order = {
 const buyer = {
       email: 'hareraloston@gmail.com',
     };
-const token = jwt.sign(buyer, 'automart-key', { expiresIn: '24hrs' });
+const token = jwt.sign(buyer, process.env.SECRETKEY, { expiresIn: '24hrs' });
 
 describe('Make an order', () => {
   it('Order should be created successfully', (done) => {
