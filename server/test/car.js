@@ -3,14 +3,16 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../server';
 import { describe, it } from 'mocha';
+import dotenv from 'dotenv';
 
+dotenv.config();
 chai.use(chaiHttp);
 chai.should();
 
 const user = {
       email: 'hareraloston@gmail.com',
     };
-const token = jwt.sign(user, 'automart-key', { expiresIn: '24hrs' });
+const token = jwt.sign(user, process.env.SECRETKEY, { expiresIn: '24hrs' });
 
 // if all field not completed will not post a car.
 const newCar = {
