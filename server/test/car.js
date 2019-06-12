@@ -184,3 +184,26 @@ describe('Admin delete a car', () => {
       });
   });
 });
+
+// Report a car test
+const fraud = {
+  car_id: 3,
+  reason: 'stolen',
+  description: 'this car was mine'
+}
+
+describe('User can report a car as fraud', () => {
+  it('Report a car', (done) => {
+    chai.request(server)
+      .post('/api/v1/car/flag')
+      .set('Authorization', token)
+      .send(fraud)
+      .end((err, res) => {
+        res.should.have.status(201);
+        res.should.be.an('object');
+        res.body.should.have.property('status').eql(201);
+        res.body.should.have.property('data');
+        done();
+      });
+  });
+});

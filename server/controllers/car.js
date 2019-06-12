@@ -1,7 +1,8 @@
 import Joi from 'joi';
-import { validateCar, updateCarPrice, updateCarStatus, queryValidation } from '../helper/validation';
+import { validateCar, updateCarPrice, updateCarStatus, queryValidation, fraudValidation } from '../helper/validation';
 import timeStamp from '../helper/timestamp';
 import cars from '../models/cars';
+import frauds from '../models/frauds';
 import cloudinary from 'cloudinary';
 import cloudinaryConfig from '../helper/cloudinaryConfig';
 
@@ -193,6 +194,38 @@ async delete(req, res) {
 	res.status(200).json({
 		status: 200,
 		data: "Car Ad successfully Deleted"
+	});    
+}
+
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
+async report(req, res) {
+	const { error } = Joi.validate(req.body, fraudValidation);
+	if (error) {
+		const errorMessage = error.details[0].message;
+		return res.status(400).json({
+        status: 400,
+        error: errorMessage
+      });
+	}
+	const carToReport = cars.find(c => c.id === parseInt(req.body.car_id, 10));
+	
+	if (!carToReport) 
+		return res.status(404).json({status: 404,error: 'Could not find Car with a given ID',});
+
+	const newFraud = {
+		id: frauds.length + 1,
+		car_id: req.body.car_id,
+		reason: req.body.reason,
+		description: req.body.description
+	}
+	frauds.push(newFraud);
+	res.status(201).json({
+		status: 201,
+		data: newFraud
 	});    
 }
 
