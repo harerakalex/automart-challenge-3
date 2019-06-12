@@ -54,6 +54,11 @@ const queryValidation = {
 	max_price: Joi.number().precision(4).positive().min(2),
 };
 
+const fraudValidation = {
+	car_id: Joi.number().integer().required(),
+	reason: Joi.string().min(5).max(100).required(),
+	description: Joi.string().min(10).max(300).required()
+}
 module.exports = { 
 	signupValidation,
 	signinValidation,
@@ -63,4 +68,5 @@ module.exports = {
 	updateOrderPrice,
 	updateCarStatus,
 	queryValidation,
+	fraudValidation,
 };

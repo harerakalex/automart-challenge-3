@@ -29,4 +29,7 @@ router.get('/', car.fetch);
 // Delete a specific car
 router.delete('/:id', auth, car.delete);
 
+// reporting a car
+router.post('/flag', auth, car.report);
+
 export default router;
