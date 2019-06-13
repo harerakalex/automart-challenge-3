@@ -194,6 +194,13 @@
         "description": "User can view cars with the option of available cars within given price range",
         "parameters": [
           {
+            "name":"Authorization",
+            "in": "header",
+            "description" :"The user token",
+            "required":false
+
+          },
+          {
             "name": "status",
             "in": "query",
             "description": " query parameters",
@@ -401,6 +408,49 @@
         }
       }
     },
+    "/car/flag": {
+      "post": {
+        "tags": [
+          "Cars"
+        ],
+        "summary": "Report a car",
+        "description": "User can be able to report a car",
+        "parameters": [
+          {
+            "name":"Authorization",
+            "in": "header",
+            "description" :"The user token",
+            "required":false
+
+          },
+          {
+            "name": "Report a car",
+            "in": "body",
+            "description": "Report a car as fraud",
+            "schema": {
+              "$ref": "#/definitions/fraud"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "success: Order created Successfully"
+          },
+          "400": {
+            "description": "Error: invalid value"
+          },
+          "401": {
+            "description": "Error: Authentication failed"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
     "/order": {
       "post": {
         "tags": [
@@ -593,6 +643,25 @@
         },
         "amount": {
           "type": "integer"
+        }
+      }
+    },
+    "fraud": {
+      "required": [
+        "car_id",
+        "reason",
+        "description"
+      ],
+      "type": "object",
+      "properties": {
+        "car_id": {
+          "type": "integer"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
         }
       }
     },
