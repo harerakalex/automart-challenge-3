@@ -48,6 +48,7 @@ button:hover{
   padding-left: 20px;
   padding-right:20px;
   color:#ffffff;
+  border-radius: 5%;
 }
 
 .btn-small{
@@ -150,7 +151,7 @@ header a:hover{
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #e8491d;
+  color: #e8491d;
 }
 
 /* Dropdown content (hidden by default) */
@@ -338,7 +339,7 @@ select.sort-opt{
   position: absolute;
   left: 70%;
   top: 50%;
-  width: 60px;
+  /*width: 60px;*/
 }
 
 .card:hover{
@@ -351,7 +352,9 @@ select.sort-opt{
 .card:hover .box-btn{
   display: block;
 }
-
+.card h3,p{
+  color: black;
+}
 /* --------------------------------------
    Manufactures
    -------------------------------------- */
