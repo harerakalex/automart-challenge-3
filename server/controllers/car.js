@@ -5,6 +5,10 @@ import cars from '../models/cars';
 import frauds from '../models/frauds';
 import cloudinary from 'cloudinary';
 import cloudinaryConfig from '../helper/cloudinaryConfig';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const DateTime = timeStamp();
 
@@ -28,8 +32,8 @@ async fetch(req, res) {
 	}
 	const queryParameter = req.query;
 	const carStatus = queryParameter.status;
-	const minPrice = queryParameter.min_price;
-	const maxPrice = queryParameter.max_price;
+	const minPrice = parseInt(queryParameter.min_price, 10);
+	const maxPrice = parseInt(queryParameter.max_price, 10);
 	// to detect the size of the query object
 	const keys = Object.keys(queryParameter);
 
@@ -43,15 +47,24 @@ async fetch(req, res) {
 		const range = cars
 		.filter(p => p.status === carStatus && p.price >= minPrice && p.price <= maxPrice);
 
-		if (range.length > 0) res.status(200).json({ status: 200, data: range });
+		if (range.length > 0) return res.status(200).json({ status: 200, data: range });
 		else return res.status(404).json({ status: 404, error: 'No search Data found for that query' });
 	} else {
-		return res.status(200).json({
-			status: 200,
-			data: cars,
-		});
-	}
+		const token = req.headers.authorization;
+		if (token) {
+			try {
+				const decode = jwt.verify(token, process.env.SECRETKEY);
 
+				if (decode.admin) return res.status(200).json({ status: 200, data: cars });
+				else  return res.status(403).json({ status: 403, error: 'Unathorized access.' });
+			} catch {
+				return res.status(401).json({ status: 401, error: 'Invalid token' });
+			}
+		} else {
+			return res.status(401).json({ status: 401, error: 'No token provided' });
+		}
+
+	}
 }
 
 /**
@@ -98,7 +111,7 @@ async create(req, res) {
 			//image upload
 			const filename = req.files.picture.path;
 			cloudinary.v2.uploader.upload(filename,{tags:'Automart Images'},function(err,image){
-				if (err){ console.warn(err);}
+				if (err){ return res.status(404).json({status: 404,error: 'Invalid File'});}
 				else{
 					const imageUrl = image.secure_url;
 					const carId = parseInt(cars.length + 1, 10);

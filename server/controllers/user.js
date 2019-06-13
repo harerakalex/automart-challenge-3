@@ -1,4 +1,3 @@
-import fs from 'fs';
 import Joi from 'joi';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -24,24 +23,26 @@ class User {
         status: 400,
         error: errorMessage,
       });
-    } else {
-      const emailFound = users.find(c => c.email === req.body.email);
-      if (emailFound) {
-      	return res.status(409).json({ status: 409, error: 'Email Exists' });
-      }
-      else{
-      	const newUser = {
-      		id: users.length + 1,
-      		first_name: req.body.first_name,
-      		last_name: req.body.last_name,
-      		email: req.body.email,
-      		address: req.body.address,
-      		password: bcrypt.hashSync(req.body.password, 10),
-      		is_admin: false,
-      	};
+    }
 
-      	users.push(newUser);
-      	delete newUser.password;
+    const emailFound = users.find(c => c.email === req.body.email);
+    if (emailFound) {
+     return res.status(409).json({ status: 409, error: 'Email Exists' });
+    }
+    else{
+      const admin = users.length;
+      const newUser = {
+        id: users.length + 1,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        address: req.body.address,
+        password: bcrypt.hashSync(req.body.password, 10),
+        is_admin: admin == 0? true:false
+    };
+
+    users.push(newUser);
+      	// delete newUser.password;
 
       	jwt.sign({ id: newUser.id, email: newUser.email, admin: newUser.is_admin }, process.env.SECRETKEY, { expiresIn: '24h' }, (err, token) => {
       		newUser.token = token;
@@ -54,7 +55,7 @@ class User {
       	});
       }
       
-    }
+    
   }
 
   /**
@@ -70,35 +71,34 @@ class User {
         status: 400,
         error: errorMessage,
       });
-    }else{
-      const userEmail = req.body.email;
-      const userPassword = req.body.password;
-      const foundUser = users.find(e => e.email === userEmail);
+    }
 
-      if (!foundUser) {
-        return res.status(401).json({ status: 401, error: 'email does not exist' });
-      }
-      else{
-        const pass = bcrypt.compareSync(userPassword, foundUser.password);
-        if (pass) {
-          delete foundUser.password;
+    const userEmail = req.body.email;
+    const userPassword = req.body.password;
+    const foundUser = users.find(e => e.email === userEmail);
 
-          jwt.sign({ id: foundUser.id, email: foundUser.email, admin: foundUser.is_admin }, process.env.SECRETKEY, {expiresIn: '24h'}, (err, token) => {
-            foundUser.token = token;
-            return res.status(200).json(
-            {
-              status: 200,
-              data: foundUser
-            });
-          });
-        }
-        else{
-          return res.status(401).json({
-            status: 401,
-            message: "invalid credential"
-          })
-        }
-      }
+    if (!foundUser) {
+      return res.status(401).json({ status: 401, error: 'email does not exist' });
+    }
+
+    const pass = bcrypt.compareSync(userPassword, foundUser.password);
+    if (pass) {
+      // delete foundUser.password;
+
+      jwt.sign({ id: foundUser.id, email: foundUser.email, admin: foundUser.is_admin }, process.env.SECRETKEY, {expiresIn: '24h'}, (err, token) => {
+        foundUser.token = token;
+        return res.status(200).json(
+        {
+          status: 200,
+          data: foundUser
+        });
+      });
+    }
+    else{
+      return res.status(401).json({
+        status: 401,
+        message: "invalid credential"
+      })
     }  
   }
 
@@ -107,6 +107,7 @@ class User {
  * @param {*} req
  * @param {*} res
  */
+
   async logout(req, res) {
 
   }
