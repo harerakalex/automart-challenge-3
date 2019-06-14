@@ -556,7 +556,8 @@
         "last_name",
         "email",
         "password",
-        "address"
+        "address",
+        "is_admin"
       ],
       "type": "object",
       "properties": {
@@ -574,6 +575,9 @@
         },
         "address": {
           "type": "string"
+        },
+        "is_admin": {
+          "type": "boolean"
         }
       }
     },
