@@ -30,7 +30,6 @@ class User {
      return res.status(409).json({ status: 409, error: 'Email Exists' });
     }
     else{
-      const admin = users.length;
       const newUser = {
         id: users.length + 1,
         first_name: req.body.first_name,
@@ -38,7 +37,7 @@ class User {
         email: req.body.email,
         address: req.body.address,
         password: bcrypt.hashSync(req.body.password, 10),
-        is_admin: admin == 0? true:false
+        is_admin: req.body.is_admin
     };
 
     users.push(newUser);

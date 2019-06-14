@@ -51,6 +51,7 @@ const user = {
       email: 'hareraloston@gmail.com',
       password: 'butare',
       address: 'Rwanda',
+      is_admin: true
     };
 
 describe('signup', () => {

@@ -55,7 +55,12 @@ async fetch(req, res) {
 			try {
 				const decode = jwt.verify(token, process.env.SECRETKEY);
 
-				if (decode.admin) return res.status(200).json({ status: 200, data: cars });
+				if (decode.admin) {
+					if (cars.length == 0)
+						return res.status(404).json({ status: 404, error: 'No car found yet' });
+					else
+						return res.status(200).json({ status: 200, data: cars });
+				}
 				else  return res.status(403).json({ status: 403, error: 'Unathorized access.' });
 			} catch {
 				return res.status(401).json({ status: 401, error: 'Invalid token' });
