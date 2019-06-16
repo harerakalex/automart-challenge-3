@@ -1,12 +1,6 @@
 language: node_js
 node_js: 
   - "stable"
-addons:
-  postgresql: "11"
-services:
-  - postgresql
-before_script:
-  - psql -c 'CREATE DATABASE testDb;' -U postgres hc
 script: npm test
 cache:
   directories:
