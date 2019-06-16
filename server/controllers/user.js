@@ -1,9 +1,14 @@
 import Joi from 'joi';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import users from '../models/users';
+// import users from '../models/users';
 import { signupValidation, signinValidation } from '../helper/validation';
+import pool from '../config/db';
 import dotenv from 'dotenv';
+// import pools from '../models/createTables';
+import '@babel/polyfill';
+
+
 
 dotenv.config();
 
@@ -24,35 +29,44 @@ class User {
         error: errorMessage,
       });
     }
-
-    const emailFound = users.find(c => c.email === req.body.email);
-    if (emailFound) {
+    const email = req.body.email.trim();
+    const emailFound = 'SELECT * FROM users WHERE email = $1';
+    
+    const user = await pool.query(emailFound, [email]);
+    if (user.rows[0]) {
      return res.status(409).json({ status: 409, error: 'Email Exists' });
     }
-    else{
-      const newUser = {
-        id: users.length + 1,
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email,
-        address: req.body.address,
-        password: bcrypt.hashSync(req.body.password, 10),
-        is_admin: req.body.is_admin
+    
+    const newUser = {
+      email: req.body.email,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      address: req.body.address,
+      password: bcrypt.hashSync(req.body.password, 10),
+      is_admin: req.body.is_admin
     };
 
-    users.push(newUser);
-      	// delete newUser.password;
+    const insert = 'INSERT INTO users(email, first_name, last_name, password, address, is_admin) VALUES($1, $2, $3, $4, $5, $6) RETURNING *';
+    const results = await pool.query(insert,
+      [
+      newUser.email,
+      newUser.first_name,
+      newUser.last_name,
+      newUser.password,
+      newUser.address,
+      newUser.is_admin,
+      ]);
 
-      	jwt.sign({ id: newUser.id, email: newUser.email, admin: newUser.is_admin }, process.env.SECRETKEY, { expiresIn: '24h' }, (err, token) => {
-      		newUser.token = token;
-      		return res.status(201).json(
-      		{
-      			status: 201,
-      			data: newUser,
-      		},
-      		);
-      	});
-      }
+    jwt.sign({ id: newUser.id, email: newUser.email, admin: newUser.is_admin }, process.env.SECRETKEY, { expiresIn: '24h' }, (err, token) => {
+      newUser.token = token;
+      return res.status(201).json(
+      {
+       status: 201,
+       data: newUser,
+      },
+      );
+    });
+      
       
     
   }
