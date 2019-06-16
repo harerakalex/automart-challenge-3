@@ -1,11 +1,9 @@
 import Joi from 'joi';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-// import users from '../models/users';
 import { signupValidation, signinValidation } from '../helper/validation';
 import pool from '../config/db';
 import dotenv from 'dotenv';
-// import pools from '../models/createTables';
 import '@babel/polyfill';
 
 
@@ -57,12 +55,25 @@ class User {
       newUser.is_admin,
       ]);
 
-    jwt.sign({ id: newUser.id, email: newUser.email, admin: newUser.is_admin }, process.env.SECRETKEY, { expiresIn: '24h' }, (err, token) => {
-      newUser.token = token;
+    const payload = {
+        id: results.rows[0].id,
+        email: results.rows[0].email,
+        is_admin: results.rows[0].is_admin,
+      };
+    jwt.sign(payload, process.env.SECRETKEY, { expiresIn: '24h' }, (err, token) => {
+      
+      const response = {
+          id: results.rows[0].id,
+          first_name: results.rows[0].first_name,
+          last_name: results.rows[0].last_name,
+          email: results.rows[0].email,
+          address: results.rows[0].address,
+          token: token
+        }
       return res.status(201).json(
       {
        status: 201,
-       data: newUser,
+       data: response
       },
       );
     });
@@ -86,24 +97,39 @@ class User {
       });
     }
 
-    const userEmail = req.body.email;
+    const userEmail = req.body.email.trim();
     const userPassword = req.body.password;
-    const foundUser = users.find(e => e.email === userEmail);
+    const emailFound = 'SELECT * FROM users WHERE email = $1';
+    
+    const foundUser = await pool.query(emailFound, [userEmail]);
 
-    if (!foundUser) {
+    if (!foundUser.rows[0]) {
       return res.status(401).json({ status: 401, error: 'email does not exist' });
     }
 
-    const pass = bcrypt.compareSync(userPassword, foundUser.password);
+    const pass = bcrypt.compareSync(userPassword, foundUser.rows[0].password);
     if (pass) {
       // delete foundUser.password;
+      const payload = {
+        id: foundUser.rows[0].id,
+        email: foundUser.rows[0].email,
+        is_admin: foundUser.rows[0].is_admin,
+      };
 
-      jwt.sign({ id: foundUser.id, email: foundUser.email, admin: foundUser.is_admin }, process.env.SECRETKEY, {expiresIn: '24h'}, (err, token) => {
-        foundUser.token = token;
+      jwt.sign(payload, process.env.SECRETKEY, {expiresIn: '24h'}, (err, token) => {
+        
+        const response = {
+          id: foundUser.rows[0].id,
+          first_name: foundUser.rows[0].first_name,
+          last_name: foundUser.rows[0].last_name,
+          email: foundUser.rows[0].email,
+          address: foundUser.rows[0].address,
+          token: token
+        }    
         return res.status(200).json(
         {
           status: 200,
-          data: foundUser
+          data: response
         });
       });
     }
