@@ -1,6 +1,6 @@
-# automart-challenge
+# automart-challenge-3
  
-[![Build Status](https://travis-ci.org/harerakalex/automart-challenge.svg?branch=develop)](https://travis-ci.org/harerakalex/automart-challenge)  [![Coverage Status](https://coveralls.io/repos/github/harerakalex/automart-challenge/badge.svg?branch=develop)](https://coveralls.io/github/harerakalex/automart-challenge?branch=develop)  [![Maintainability](https://api.codeclimate.com/v1/badges/36a1385fd89f3d178e1e/maintainability)](https://codeclimate.com/github/harerakalex/automart-challenge/maintainability)
+[![Build Status](https://travis-ci.org/harerakalex/automart-challenge-3.svg?branch=develop)](https://travis-ci.org/harerakalex/automart-challenge-3)  [![Coverage Status](https://coveralls.io/repos/github/harerakalex/automart-challenge-3/badge.svg?branch=develop)](https://coveralls.io/github/harerakalex/automart-challenge-3?branch=develop)  [![Maintainability](https://api.codeclimate.com/v1/badges/ba0c42d5d96bf4c30384/maintainability)](https://codeclimate.com/github/harerakalex/automart-challenge-3/maintainability)
 
 
 
