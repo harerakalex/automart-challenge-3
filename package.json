@@ -11,8 +11,8 @@
     "showCoverage": "start coverage/lcov-report/index.html",
     "createTablesTests": "cross-env NODE_ENV=test node --require @babel/register ./server/models/createTables.js",
     "droptablesTests": "cross-env NODE_ENV=test node --require @babel/register ./server/models/dropTables.js",
-    "createTables": "NODE_ENV=development node  --require @babel/register ./server/models/tables.js",
-    "dropTables": "NODE_ENV=development node --require @babel/register ./server/models/dropTables.js"
+    "createTables": "cross-env NODE_ENV=development node  --require @babel/register ./server/models/createTables.js",
+    "dropTables": "cross-env NODE_ENV=development node --require @babel/register ./server/models/dropTables.js"
   },
   "repository": {
     "type": "git",
